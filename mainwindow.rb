@@ -547,6 +547,7 @@ class MainWindow
   def _set_test(hoge)
     @examList.delete @examList.items
     file_imgae = Tk::BWidget::Bitmap.new('file')
+
     @exams[hoge].each_with_index do |exam, _i|
       _text = exam[:examination]
       @examList.insert :end, _text, text: _text, image: file_imgae
@@ -561,7 +562,7 @@ class MainWindow
   end
 
   def get_condition
-    @conditionList.selection_get[0]
+    @conditionList.selection_get[0].encode("utf-8")
   end
 
   def get_exam_num

@@ -1,5 +1,4 @@
 # 2013-2018 kojix2
-
 class MainWindow
   # ヘルプを表示するウィンドウ
   class HelpWindow
@@ -7,7 +6,8 @@ class MainWindow
       puts 'show_help' # コンソール出力
 
       begin
-        s = File.read(File.join(dir, 'help/use.txt'))
+        filepath = File.join(dir, 'help/use.txt')
+        s = File.read(filepath, encoding:"UTF-8:UTF-8")
       rescue StandardError
         s =  "ヘルプファイルが見つかりませんでした\n"
         s << File.join(dir, 'use.txt')
