@@ -502,11 +502,11 @@ class MainWindow
     if RUBY_PLATFORM.downcase =~ /mswin(?!ce)|mingw|cygwin|bccwin/ # Windows判定
       system("start #{path.gsub(/\//) { '\\' }}") unless path.nil? || path.empty?
     elsif RUBY_PLATFORM.downcase =~ /darwin/ # Mac判定
-      system("open #{path.join(' ').shellescape}") # 
+      system("open #{path.join(' ').shellescape}") #
     else
       begin
         system "xdg-open #{path}"
-      rescue
+      rescue StandardError
         Tk.messageBox(title: "#{RUBY_PLATFORM}ユーザーですか？", message: "申し訳ありませんがファイルを開けません。\n#{path}")
       end
     end
@@ -562,7 +562,8 @@ class MainWindow
   end
 
   def get_condition
-    @conditionList.selection_get[0].encode("utf-8")
+    # Windows で動くようにUTF-8に強制変換
+    @conditionList.selection_get[0].encode('utf-8')
   end
 
   def get_exam_num

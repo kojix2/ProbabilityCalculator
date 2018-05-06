@@ -38,10 +38,10 @@ class MainWindow
         pack(side: :left)
       end
 
-      #TkLabel.new(@f1) do
+      # TkLabel.new(@f1) do
       #  text 'max'
       #  pack(side: :left)
-      #end
+      # end
       # e1 = TkSpinbox.new(@f1, width:3, to:100, from:1, textvariable:@max).pack(:side=>:left)
       @h = TkCanvas.new(window) do
         bg :white
@@ -89,8 +89,8 @@ class MainWindow
           @sensitivities << item[:lr_positive].to_f
           @specificities << if (1.0 / item[:lr_negative].to_f).finite?
                               1.0 / item[:lr_negative].to_f
-          else
-            0.0
+                            else
+                              0.0
           end
         end
         temp = @sensitivities.max + 1.0
@@ -111,8 +111,8 @@ class MainWindow
           @sensitivities << item[:lr_positive].to_f
           @specificities << if item[:lr_negative].nil?
                               0.0
-          else
-            1.0 / item[:lr_negative].to_f
+                            else
+                              1.0 / item[:lr_negative].to_f
           end
         end
         temp = @specificities.max + 1.0

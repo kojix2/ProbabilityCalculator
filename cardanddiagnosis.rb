@@ -66,10 +66,9 @@ class CardAndDiagnosis
       yscrollbar(scr2)
       pack
     end
-    #@diagnosislist.bind '<ListboxSelect>', proc{ puts curselection }
-
+    # @diagnosislist.bind '<ListboxSelect>', proc{ puts curselection }
   end
- 
+
   # カードが選択されたとき
   def card_did_select(selectnum)
     @diagnosislist.clear

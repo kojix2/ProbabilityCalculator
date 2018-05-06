@@ -7,7 +7,7 @@ class MainWindow
 
       begin
         filepath = File.join(dir, 'help/use.txt')
-        s = File.read(filepath, encoding:"UTF-8:UTF-8")
+        s = File.read(filepath, encoding: 'UTF-8:UTF-8')
       rescue StandardError
         s =  "ヘルプファイルが見つかりませんでした\n"
         s << File.join(dir, 'use.txt')

@@ -53,19 +53,19 @@ def read_data_files(dir)
     exam = []
     name = File.basename(csv, '.*')
     # Windows ではエンコーディングが Windows-31J になるので強制変換
-    name.encode!("UTF-8")
+    name.encode!('UTF-8')
     begin
       # Shift_JIS指定
-      CSV.foreach(csv, encoding:"UTF-8:UTF-8", headers: true, header_converters: :symbol) do |row|
+      CSV.foreach(csv, encoding: 'UTF-8:UTF-8', headers: true, header_converters: :symbol) do |row|
         keys = row.headers[0..-1]
         values = row.fields[0..-1]
-        h = Hash.new
-        keys.zip(values).each do |k,v|
+        h = {}
+        keys.zip(values).each do |k, v|
           h[k] = v
         end
         exam << h
       end
-      data.store(name,exam)
+      data.store(name, exam)
     rescue StandardError
       Tk.messageBox(type: :ok, icon: :error, title: 'CSV読み込みエラー', message: "#{name}の読み込み中にエラーが発生しました。")
     end
@@ -83,11 +83,10 @@ def read_preprobability_data_files(dir)
     puts filepath # ファイルの名前を出力
     name = File.basename(filepath, '.*')
     # Windows ではエンコーディングが Windows-31J になるので強制変換
-    name.encode!("UTF-8")
+    name.encode!('UTF-8')
     begin
-      text = File.read(filepath, encoding:"UTF-8:UTF-8")
+      text = File.read(filepath, encoding: 'UTF-8:UTF-8')
       data.store(name, text)
-      pp text.encoding
     rescue StandardError
       Tk.messageBox(type: :ok, icon: :error, title: 'TXT読み込みエラー', message: "#{name}の読み込み中にエラーが発生しました。")
     end
