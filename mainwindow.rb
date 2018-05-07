@@ -95,7 +95,10 @@ class MainWindow
                    '検査特性グラフを別ウィンドウで表示する',
                    'グラフ') do
                      if @conditionList.selection_get[0].nil?
-                       Tk.messageBox(title: 'エラー', message: 'CONDITIONを選択してね')
+                       Tk.messageBox(
+                         title: 'エラー',
+                         message: 'CONDITIONを選択してね'
+                       )
                      else
                        condition = get_condition
                        BoxChart.new(@exams[condition], condition, false)
@@ -108,8 +111,10 @@ class MainWindow
                    'exchange32.png',
                    'DATA再度読み込み：未実装',
                    '更新') do
-                     Tk::BWidget::MessageDlg.new(relative: Tk.root,
-                                                 message: '未実装です。すみません。').create
+                     Tk.messageBox(
+                       title: 'Oops',
+                       message: '未実装です。すみません。'
+                     )
                    end
 
     # メッセージ表示
@@ -507,7 +512,10 @@ class MainWindow
       begin
         system "xdg-open #{path}"
       rescue StandardError
-        Tk.messageBox(title: "#{RUBY_PLATFORM}ユーザーですか？", message: "申し訳ありませんがファイルを開けません。\n#{path}")
+        Tk.messageBox(
+          title: "#{RUBY_PLATFORM}ユーザーですか？",
+          message: "申し訳ありませんがファイルを開けません。\n#{path}"
+        )
       end
     end
   end
