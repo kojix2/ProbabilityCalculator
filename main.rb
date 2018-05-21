@@ -9,6 +9,7 @@ require 'tkextlib/bwidget'
 require 'tkextlib/tkimg/png'
 require 'tkextlib/tcllib/plotchart'
 
+require_relative 'utils'
 require_relative 'calculator'
 require_relative 'cardanddiagnosis'
 require_relative 'boxchart'
