@@ -52,11 +52,11 @@ end
         # 感度・特異度による計算を優先する
         puts "感度・特異度による計算:#{test.name}[#{test.result}]"
         case test.result
-        when :positive then # 結果が陽性の時
+        when :positive # 結果が陽性の時
           rp = (np * test.sensitivity) / (np * test.sensitivity + ((1.0 - np) * (1.0 - test.specificity)))
-        when :negative then # 結果が陰性の時
+        when :negative # 結果が陰性の時
           rp = (np * (1.0 - test.sensitivity)) / (np * (1.0 - test.sensitivity) + ((1.0 - np) * test.specificity))
-        when :neutral then # 中立
+        when :neutral # 中立
           rp = np
         else
           raise
@@ -71,7 +71,7 @@ end
         when :negative then
           odds = np / (1 - np) * test.lr_negative
           rp = odds / (1 + odds)
-        when :neutral then
+        when :neutral
           rp = np
         else
           raise

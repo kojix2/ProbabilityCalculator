@@ -333,7 +333,7 @@ class MainWindow
 
     # preprobの詳細
     @preprob_tktext = TkText.new(preprob_view_pane) do
-      font ({ size: 10 })
+      font({ size: 10 })
       pack(fill: :both)
     end
 
@@ -482,6 +482,7 @@ class MainWindow
     @table.columns.zip(%w[検査名 感度 特異度 LR＋ LR?]).each do |col, name|
       @table.heading_configure(col, text: name)
       next if col == 'name'
+
       @table.column_configure(col, width: 50)
     end
     vsb = @table.yscrollbar(TkScrollbar.new(@table_nb))
@@ -518,6 +519,7 @@ class MainWindow
     @conditionList.bind 'Button-1', proc {
       condition = get_condition
       break if condition.nil?
+
       _set_test condition
       @calc.clear
       remove_all_test_order
@@ -568,9 +570,7 @@ class MainWindow
     @specificity_var.value = (@exams[condition][num][:specificity] || '-')
     @lrp_var.value = (@exams[condition][num][:lr_positive] || ' - ')
     # 表示のための小細工
-    lrm_var_temp = unless @exams[condition][num][:lr_negative].nil?
-                     1.0 / @exams[condition][num][:lr_negative].to_f
-                   end
+    lrm_var_temp = (1.0 / @exams[condition][num][:lr_negative].to_f unless @exams[condition][num][:lr_negative].nil?)
     @lrm_var.value = (@exams[condition][num][:lr_negative] || ' - ')
     @lrm_bar_var.value = lrm_var_temp
     @memo_var.value = (@exams[condition][num][:memo] || '')

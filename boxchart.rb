@@ -11,11 +11,7 @@ class MainWindow
 
       @titlename = titlename
       @max = TkVariable.new(12.0)
-      window = if parent
-                 parent
-               else
-                 TkToplevel.new(title: '検査特性')
-               end
+      window = parent || TkToplevel.new(title: '検査特性')
       @f1 = TkFrame.new(window).pack(anchor: :nw)
       b1 = TkButton.new(@f1) do
         text '名前でソート'
