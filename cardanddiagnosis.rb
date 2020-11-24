@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # 2013-2018 kojix2
 
 # カードと鑑別疾患
 class CardAndDiagnosis
   def initialize(dir)
     @reader = nil
-    temp_path = (dir + '/diagnosis/diagnosis.csv')
+    temp_path = "#{dir}/diagnosis/diagnosis.csv"
     puts temp_path
     begin
       *@reader = CSV.read(temp_path)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 2013-2018  kojix2
 
 require 'pp'
@@ -20,7 +22,7 @@ require_relative 'helpwindow'
 require_relative 'versiondialog'
 
 VERSION = 2.0
-TITLE = " ベイズの旧式確率計算機 あるいは 感度・特異度ブラウザ #{VERSION}".freeze
+TITLE = " ベイズの旧式確率計算機 あるいは 感度・特異度ブラウザ #{VERSION}"
 
 # 事前確率デフォルト値
 PRIOR_PROBABILITY_DEFAULT = 0.5

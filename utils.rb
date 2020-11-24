@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 # ファイルを開く
 def open_file
   path = @guidelinetree.selection[0].value[1]
   pp path
-  if RUBY_PLATFORM.downcase =~ /mswin(?!ce)|mingw|cygwin|bccwin/ # Windows判定
+  case RUBY_PLATFORM.downcase
+  when /mswin(?!ce)|mingw|cygwin|bccwin/ # Windows判定
     system("start #{path.gsub(%r{/}) { '\\' }}") unless path.nil? || path.empty?
-  elsif RUBY_PLATFORM.downcase =~ /darwin/ # Mac判定
+  when /darwin/ # Mac判定
     system("open #{path}") #
   else
     begin

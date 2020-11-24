@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 2013-2018 kojix2
 
 # メインウィンドウ
@@ -419,7 +421,7 @@ class MainWindow
     @content_frame.configure(width: 400)
     # ScrolledWindowsとScrollableFrameの違いがわからない
 
-    w3.pack(fill: :both, expand: :true)
+    w3.pack(fill: :both, expand: true)
 
     # 最終確率のセパレータ
     Tk::BWidget::Separator.new(contents_pane_nb) do
@@ -505,7 +507,7 @@ class MainWindow
   def _set_condition
     # CONDITIONの項目を追加する
     folder_image = Tk::BWidget::Bitmap.new('folder')
-    @exams.keys.each do |condition|
+    @exams.each_key do |condition|
       @conditionList.insert :end, condition, text: condition, image: folder_image
     end
     @conditionList.bind 'Return', proc {
@@ -542,7 +544,7 @@ class MainWindow
       _text = exam[:examination]
       @examList.insert :end, _text, text: _text, image: file_imgae
     end
-    @title_frame.text = get_condition + ' の 診療履歴'
+    @title_frame.text = "#{get_condition} の 診療履歴"
     # 表示遅延対策
     Tk.update
 

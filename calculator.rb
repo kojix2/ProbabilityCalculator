@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 2013-2018 kojix2
 
 # 継承元クラス
