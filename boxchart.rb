@@ -87,7 +87,7 @@ class MainWindow
                               1.0 / item[:lr_negative].to_f
                             else
                               0.0
-          end
+                            end
         end
         temp = @sensitivities.max + 1.0
         @max.numeric = temp
@@ -109,7 +109,7 @@ class MainWindow
                               0.0
                             else
                               1.0 / item[:lr_negative].to_f
-          end
+                            end
         end
         temp = @specificities.max + 1.0
         @max.numeric = temp

@@ -3,6 +3,7 @@
 # 継承元クラス
 class Test
   attr_reader :name, :sensitivity, :specificity, :lr_positive, :lr_negative
+
   def initialize(name, sensitivity, specificity)
     @name = name
     @sensitivity = sensitivity
@@ -15,6 +16,7 @@ class Calclator
   # 検査と結果をセットにしたクラス Test ＆ Result
   class TestR < Test
     attr_accessor :name, :result
+
     def initialize(test, result)
       # hashの使用をやめた時はココ書き直し
       @name = test[:examination].toutf8
@@ -24,11 +26,12 @@ class Calclator
       @lr_negative = test[:lr_negative].nil? ? nil : test[:lr_negative].to_f
       @result = result
     end
-end
+  end
 
   # 事前確率
   attr_accessor :prior_probability
   attr_reader :order, :probabilities
+
   def initialize(prior_probability = PRIOR_PROBABILITY_DEFAULT)
     @prior_probability = prior_probability # 0.5＝50％：換算注意
     @order = [] # Testedを入れる配列
@@ -65,10 +68,10 @@ end
         # 尤度比による計算
         puts "尤度比による計算:#{test.name}[#{test.result}]"
         case test.result
-        when :positive then
+        when :positive
           odds = np / (1 - np) * test.lr_positive
           rp = odds / (1 + odds)
-        when :negative then
+        when :negative
           odds = np / (1 - np) * test.lr_negative
           rp = odds / (1 + odds)
         when :neutral
