@@ -1,6 +1,8 @@
 ベイズの旧式確率計算機 または 感度・特異度ブラウザ
 ===
 
+[![DOI](https://zenodo.org/badge/132083398.svg)](https://zenodo.org/badge/latestdoi/132083398)
+
 ## これはなに？
 感度・特異度から疾患の確率を計算するソフトです。
 
