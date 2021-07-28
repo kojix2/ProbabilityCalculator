@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # 2013-2018 kojix2
 
 class MainWindow

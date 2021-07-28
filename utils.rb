@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # ファイルを開く
 def open_file
   path = @guidelinetree.selection[0].value[1]
